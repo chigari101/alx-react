@@ -6,3 +6,4 @@ $(document).ready(function () {
       '<p>Dashboard data for the students</p>' +
       '<p>Copyright - Holberton School</p>'
   );
+});
