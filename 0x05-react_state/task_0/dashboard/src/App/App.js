@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Notifications from '../Notifications/Notifications';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import CourseList from '../CourseList/CourseList';
-import PropTypes from 'prop-types';
 
 class App extends Component {
   constructor(props) {
@@ -30,10 +31,15 @@ class App extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
+    const { displayDrawer } = this.state;
 
     return (
       <>
-        <Notifications displayDrawer={this.state.displayDrawer} handleDisplayDrawer={this.handleDisplayDrawer} handleHideDrawer={this.handleHideDrawer} />
+        <Notifications
+          displayDrawer={displayDrawer}
+          handleDisplayDrawer={this.handleDisplayDrawer}
+          handleHideDrawer={this.handleHideDrawer}
+        />
         <div className='App'>
           <Header />
           {isLoggedIn ? <CourseList /> : <Login />}
