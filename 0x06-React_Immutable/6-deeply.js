@@ -1,11 +1,7 @@
 import { Map } from 'immutable';
 
-function mergeDeeplyElements(page1, page2) {
-    const mergedMap = Map(page1).mergeWith(
-        (oldVal, newVal) => (oldVal.merge && oldVal.merge(newVal)) || newVal,
-        page2
-    );
-    return mergedMap.toList();
+export default function mergeDeeplyElements(page1, page2) {
+  const map = Map(page1);
+  const deep = map.mergeDeep(page2);
+  return deep;
 }
-
-export { mergeDeeplyElements };
